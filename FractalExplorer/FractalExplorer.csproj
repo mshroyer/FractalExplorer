@@ -114,4 +114,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(ProjectDir)$(OutDir)FractalExplorer.xap" "$(ProjectDir)html\FractalExplorer.xap"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
