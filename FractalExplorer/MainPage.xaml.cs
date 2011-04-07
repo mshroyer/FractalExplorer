@@ -20,7 +20,7 @@ namespace FractalExplorer
         public MainPage()
         {
             InitializeComponent();
-            bmp = new WriteableBitmap(640, 480);
+            bmp = new WriteableBitmap(2*640, 2*480);
             fractalImage.Source = bmp;
             Fractals.WriteMandelbrot(bmp);
             bmp.Invalidate();
