@@ -23,7 +23,8 @@ let linearGradient startColor endColor p =
       Green = int (p * (float startColor.Green) + (1.0-p) * (float endColor.Green));
       Blue  = int (p * (float startColor.Blue)  + (1.0-p) * (float endColor.Blue)) }
 
-let grad = linearGradient { Red = 22; Green = 23; Blue = 61 } { Red = 255; Green = 255; Blue = 255 }
+//let grad = linearGradient { Red = 22; Green = 23; Blue = 61 } { Red = 255; Green = 255; Blue = 255 }
+let grad = linearGradient { Red = 255; Green = 255; Blue = 255; } { Red = 32; Green = 32; Blue = 32; }
 
 let WriteMandelbrot (bmp : WriteableBitmap) =
     let w = bmp.PixelWidth
