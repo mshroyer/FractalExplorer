@@ -16,6 +16,7 @@ namespace FractalExplorer
     public partial class MainPage : UserControl
     {
         private WriteableBitmap bmp;
+        private GridLength prevSidebarWidth;
 
         public MainPage()
         {
@@ -24,6 +25,19 @@ namespace FractalExplorer
             fractalImage.Source = bmp;
             Fractals.WriteMandelbrot(bmp);
             bmp.Invalidate();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (layoutGrid.ColumnDefinitions[2].Width.Value > 0)
+            {
+                prevSidebarWidth = layoutGrid.ColumnDefinitions[2].Width;
+                layoutGrid.ColumnDefinitions[2].Width = new GridLength(0);
+            }
+            else
+            {
+                layoutGrid.ColumnDefinitions[2].Width = prevSidebarWidth;
+            }
         }
     }
 }

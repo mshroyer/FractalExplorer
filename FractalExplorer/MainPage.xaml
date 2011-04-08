@@ -16,7 +16,7 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid>
+    <Grid Name="layoutGrid" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
             <RowDefinition />
@@ -42,7 +42,7 @@
                 FontFamily="Georgia"
                 FontSize="18"
                 Padding="4,0,4,4"
-                Margin="0,0,14,0"
+                Margin="1,0,14,0"
                 VerticalAlignment="Bottom"
                 />
             <RichTextBox
@@ -54,18 +54,22 @@
             	Padding="4,0,4,4"
             	VerticalAlignment="Bottom"
                 >
-            	<Paragraph><Run Text="by" /><Run Text=" "/><Hyperlink NavigateUri="http://markshroyer.com/" TargetName="_blank"><Run Text="Mark Shroyer" /></Hyperlink></Paragraph>
+            	<Paragraph>
+                    <Run Text="by " />
+                    <Hyperlink NavigateUri="http://markshroyer.com/" TargetName="_blank">
+                        <Run Text="Mark Shroyer" />
+                    </Hyperlink>
+                </Paragraph>
             </RichTextBox>
-            
         </StackPanel>
         
         <Image
             Grid.Row="1"
             Grid.Column="0"
-            HorizontalAlignment="Center"
+            HorizontalAlignment="Left"
             Name="fractalImage"
-            Stretch="UniformToFill"
-            VerticalAlignment="Center"
+            Stretch="None"
+            VerticalAlignment="Top"
             />
         
         <Button
@@ -73,6 +77,7 @@
             Grid.Column="1"
             VerticalAlignment="Stretch"
             HorizontalAlignment="Stretch"
+            Click="Button_Click"
             />
         
         <TextBlock 
