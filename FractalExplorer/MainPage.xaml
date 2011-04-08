@@ -25,7 +25,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="14" />
-            <ColumnDefinition Width="240" />
+            <ColumnDefinition Width="300" />
         </Grid.ColumnDefinitions>
 
         <StackPanel
@@ -42,7 +42,7 @@
                 FontFamily="Georgia"
                 FontSize="18"
                 Padding="4,0,4,4"
-                Margin="1,0,14,0"
+                Margin="1,0,10,0"
                 VerticalAlignment="Bottom"
                 />
             <RichTextBox
@@ -54,12 +54,7 @@
             	Padding="4,0,4,4"
             	VerticalAlignment="Bottom"
                 >
-            	<Paragraph>
-                    <Run Text="by " />
-                    <Hyperlink NavigateUri="http://markshroyer.com/" TargetName="_blank">
-                        <Run Text="Mark Shroyer" />
-                    </Hyperlink>
-                </Paragraph>
+            	<Paragraph><Run Text="by" /><Run Text=" " /><Hyperlink NavigateUri="http://markshroyer.com/" TargetName="_blank"><Run Text="Mark Shroyer" /></Hyperlink></Paragraph>
             </RichTextBox>
         </StackPanel>
         
