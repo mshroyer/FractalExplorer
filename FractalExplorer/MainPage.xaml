@@ -45,20 +45,17 @@
                 Margin="0,0,14,0"
                 VerticalAlignment="Bottom"
                 />
-
-            <TextBlock
-                Padding="4,0,0,4"
-                VerticalAlignment="Bottom"
-                Text="by "
-                />
-             
-            <HyperlinkButton 
-                NavigateUri="http://markshroyer.com/"
-                Padding="0,0,4,4"
-                VerticalAlignment="Bottom"
+            <RichTextBox
+            	IsReadOnly="True"
+            	Background="Transparent"
+            	BorderBrush="{x:Null}"
+            	BorderThickness="0"
+            	AcceptsReturn="False"
+            	Padding="4,0,4,4"
+            	VerticalAlignment="Bottom"
                 >
-            	Mark Shroyer
-            </HyperlinkButton>
+            	<Paragraph><Run Text="by" /><Run Text=" "/><Hyperlink NavigateUri="http://markshroyer.com/" TargetName="_blank"><Run Text="Mark Shroyer" /></Hyperlink></Paragraph>
+            </RichTextBox>
             
         </StackPanel>
         
