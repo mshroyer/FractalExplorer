@@ -4,31 +4,69 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="480" d:DesignWidth="640">
+    d:DesignHeight="600" d:DesignWidth="800">
 	
    	<UserControl.Resources>
         <Style TargetType="Grid" x:Key="dropShadowStyle">
             <Setter Property="Effect">
                 <Setter.Value>
-                    <DropShadowEffect Direction="270" Opacity="0.35" ShadowDepth="3" />
+                    <DropShadowEffect Direction="270" Opacity="0.4" ShadowDepth="3" />
                 </Setter.Value>
             </Setter>
         </Style>
     </UserControl.Resources>
 
-    <StackPanel>
-    	<Grid Canvas.ZIndex="1000" Height="36" Background="White" Style="{StaticResource dropShadowStyle}">
-            <TextBlock Text="Fractal Explorer" FontFamily="Georgia" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="14" />
+            <ColumnDefinition Width="300" />
+        </Grid.ColumnDefinitions>
+
+        <Grid
+            Canvas.ZIndex="100"
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Background="White"
+            Style="{StaticResource dropShadowStyle}">
+            
+            <TextBlock
+                Text="Fractal Explorer"
+                FontFamily="Georgia"
+                FontSize="18"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                Padding="4"
+                />
+            
         </Grid>
         
-        <Grid Canvas.ZIndex="100">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5*" />
-                <ColumnDefinition Width="1*" />
-            </Grid.ColumnDefinitions>
-
-            <Image Grid.Column="0" HorizontalAlignment="Center" Name="fractalImage" Stretch="UniformToFill" VerticalAlignment="Center" />
-            <TextBlock Grid.Column="1" Text="foo" />
-        </Grid>
-    </StackPanel>
+        <Image
+            Grid.Row="1"
+            Grid.Column="0"
+            HorizontalAlignment="Center"
+            Name="fractalImage"
+            Stretch="UniformToFill"
+            VerticalAlignment="Center"
+            />
+        
+        <Button
+            Grid.Row="1"
+            Grid.Column="1"
+            VerticalAlignment="Stretch"
+            HorizontalAlignment="Stretch"
+            />
+        
+        <TextBlock 
+            Grid.Row="1"
+            Grid.Column="2"
+            Text="foo"
+            />
+    </Grid>
 </UserControl>
