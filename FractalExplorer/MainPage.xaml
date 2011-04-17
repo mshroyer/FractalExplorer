@@ -24,61 +24,49 @@
             </Setter>
         </Style>
 
-        <ControlTemplate TargetType="Button" x:Key="expanderButtonTemplateOriginal">
-        	<Grid>
-        		<Rectangle
+        <ControlTemplate x:Key="expanderButtonTemplate" TargetType="Button">
+            <Grid>
+                <VisualStateManager.CustomVisualStateManager>
+                    <ei:ExtendedVisualStateManager/>
+                </VisualStateManager.CustomVisualStateManager>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualStateGroup.Transitions>
+                            <VisualTransition GeneratedDuration="0" To="MouseOver">
+                                <Storyboard>
+                                    <ColorAnimation Duration="0" To="#FFE5E5E5" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="rectangle" d:IsOptimized="True"/>
+                                    <ColorAnimation Duration="0" To="#FFDEDEDE" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="rectangle" d:IsOptimized="True"/>
+                                    <ColorAnimation Duration="0" To="#FFEDEDED" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)" Storyboard.TargetName="rectangle" d:IsOptimized="True"/>
+                                </Storyboard>
+                            </VisualTransition>
+                            <VisualTransition GeneratedDuration="0" To="Pressed">
+                                <Storyboard>
+                                    <ColorAnimation Duration="0" To="#FFE0E0E0" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="rectangle" d:IsOptimized="True"/>
+                                    <ColorAnimation Duration="0" To="#FFCECECE" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="rectangle" d:IsOptimized="True"/>
+                                    <ColorAnimation Duration="0" To="#FFBABABA" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)" Storyboard.TargetName="rectangle" d:IsOptimized="True"/>
+                                </Storyboard>
+                            </VisualTransition>
+                        </VisualStateGroup.Transitions>
+                        <VisualState x:Name="Normal"/>
+                        <VisualState x:Name="MouseOver"/>
+                        <VisualState x:Name="Pressed"/>
+                        <VisualState x:Name="Disabled"/>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+                <Rectangle x:Name="rectangle"
                     Stroke="#ccc"
                     StrokeThickness="1"
                     >
-        			<Rectangle.Fill>
-                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                            <GradientStop Offset="0" Color="#eeeeee" />
-                            <GradientStop Offset="0.5" Color="#f0f0f0" />
-                            <GradientStop Offset="1" Color="#dddddd" />
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFDEDEDE"/>
+                            <GradientStop Color="#FFD2D2D2" Offset="1"/>
+                            <GradientStop Color="#FFE5E5E5" Offset="0.5"/>
                         </LinearGradientBrush>
                     </Rectangle.Fill>
                 </Rectangle>
-                <Path
-                    Opacity="100"
-                    Stroke="#000000"
-                    Data="M0,0 L10,10 Z"/>
             </Grid>
         </ControlTemplate>
-   		<ControlTemplate x:Key="expanderButtonTemplate" TargetType="Button">
-   			<Grid>
-   				<VisualStateManager.CustomVisualStateManager>
-   					<ei:ExtendedVisualStateManager/>
-   				</VisualStateManager.CustomVisualStateManager>
-   				<VisualStateManager.VisualStateGroups>
-   					<VisualStateGroup x:Name="CommonStates">
-   						<VisualStateGroup.Transitions>
-   							<VisualTransition GeneratedDuration="0" To="MouseOver">
-   								<Storyboard>
-   									<ColorAnimation Duration="0" To="WhiteSmoke" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="rectangle" d:IsOptimized="True"/>
-   									<ColorAnimation Duration="0" To="White" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)" Storyboard.TargetName="rectangle" d:IsOptimized="True"/>
-   								</Storyboard>
-   							</VisualTransition>
-   						</VisualStateGroup.Transitions>
-   						<VisualState x:Name="Normal"/>
-   						<VisualState x:Name="MouseOver"/>
-   						<VisualState x:Name="Pressed"/>
-   						<VisualState x:Name="Disabled"/>
-   					</VisualStateGroup>
-   				</VisualStateManager.VisualStateGroups>
-   				<Rectangle x:Name="rectangle"
-   					Stroke="#ccc"
-   					StrokeThickness="1"
-                    >
-   					<Rectangle.Fill>
-   						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-   							<GradientStop Color="#FFEEEEEE"/>
-   							<GradientStop Color="#FFDDDDDD" Offset="1"/>
-   							<GradientStop Color="#FFF0F0F0" Offset="0.5"/>
-   						</LinearGradientBrush>
-   					</Rectangle.Fill>
-   				</Rectangle>
-   			</Grid>
-   		</ControlTemplate>
     </UserControl.Resources>
 
     <Grid x:Name="layoutGrid" Background="White">
@@ -116,17 +104,17 @@
                 Grid.Column="0"
                 />
             <RichTextBox
-            	IsReadOnly="True"
-            	Background="Transparent"
-            	BorderBrush="{x:Null}"
-            	BorderThickness="0"
-            	AcceptsReturn="False"
-            	Padding="4,0,4,4"
-            	VerticalAlignment="Bottom"
+                IsReadOnly="True"
+                Background="Transparent"
+                BorderBrush="{x:Null}"
+                BorderThickness="0"
+                AcceptsReturn="False"
+                Padding="4,0,4,4"
+                VerticalAlignment="Bottom"
                 HorizontalAlignment="Right"
                 Grid.Column="1"
                 >
-            	<Paragraph><Run Text="an " /><Hyperlink NavigateUri="https://github.com/markshroyer/FractalExplorer" TargetName="_blank"><Run Text="Open Source Project" /></Hyperlink><Run Text=" by" /><Run Text=" " /><Hyperlink NavigateUri="http://markshroyer.com/" TargetName="_blank"><Run Text="Mark Shroyer" /></Hyperlink></Paragraph>
+                <Paragraph><Run Text="an " /><Hyperlink NavigateUri="https://github.com/markshroyer/FractalExplorer" TargetName="_blank"><Run Text="Open Source Project" /></Hyperlink><Run Text=" by" /><Run Text=" " /><Hyperlink NavigateUri="http://markshroyer.com/" TargetName="_blank"><Run Text="Mark Shroyer" /></Hyperlink></Paragraph>
             </RichTextBox>
         </Grid>
         
